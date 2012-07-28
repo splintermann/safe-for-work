@@ -1,15 +1,25 @@
-<script>
-	document.onmousemove=getMouseCoordinates;
-	function getMouseCoordinates(event){
-		ev = event || window.event;
-		if (ev.pageX<250 && ev.pageY<25) 
-			document.getElementById("ninja").style.opacity=Math.min(1,(ev.pageX-25)/200.0);
-		if (ev.pageX<25 && ev.pageY<25) document.getElementById("wiki").style.zIndex = 2; 
-		else document.getElementById("wiki").style.zIndex = 0;}
-</script>
+<html>
+	<script>
+		document.onmousemove=getMouseCoordinates;
+		function getMouseCoordinates(event)
+		{
+			ev = event || window.event;
+			
+			if (ev.pageX<250 && ev.pageY<25) 
+				document.getElementById("ninja").style.opacity=Math.min(1,(ev.pageX-25)/200.0);
+			
+			if (ev.pageX<25 && ev.pageY<25) 
+				document.getElementById("wiki").style.zIndex = 2; 
+			else 
+				document.getElementById("wiki").style.zIndex = 0;
+		}
+	</script>
 
-<body style="overflow:hidden">
-	<iframe id="wiki" type="text/html" width="100%" height="100%" src="http://www.wikipedia.org" frameborder="0" scrolling=yes style="z-index:0; top:0px; left:0px; position:absolute; opacity:1; padding:0px; border:0px; margin:0px;"></iframe>
-	<iframe id="ninja" type="text/html" width="100%" height="100%" src="chrome-extension://gbchcmhmhahfdphkhkmpfmihenigjmpp/main.html" frameborder="0" scrolling=yes style="z-index:1; top:0px; left:0px; position:absolute; opacity:.25; padding:0px; border:0px; margin:0px;" ></iframe>
-	<div id="mouse" width="250px" height="50px" style="opacity:0; position:absolute; top:0px; left:0px; z-index:3; "> MUNDOGOESWHEREHEPLEASES </div>
-</body>
+	<body style="overflow:hidden">
+		<iframe src="http://www.wikipedia.org" 
+			id="wiki" type="text/html" width="100%" height="100%" frameborder="0" scrolling=yes style="z-index:0; top:0px; left:0px; position:absolute; opacity:1; padding:0px; border:0px; margin:0px;"></iframe>
+		<iframe src="chrome-extension://gbchcmhmhahfdphkhkmpfmihenigjmpp/main.html" 
+			id="ninja" type="text/html" width="100%" height="100%" frameborder="0" scrolling=yes style="z-index:1; top:0px; left:0px; position:absolute; opacity:.25; padding:0px; border:0px; margin:0px;"></iframe>
+		<div id="mouse" width="250px" height="50px" style="opacity:0; position:absolute; top:0px; left:0px; z-index:3; "> MUNDOGOESWHEREHEPLEASES </div>
+	</body>
+<html>
